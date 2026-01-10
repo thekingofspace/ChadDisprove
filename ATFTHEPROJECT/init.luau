@@ -1,0 +1,1 @@
+local PlayerRigging = require("@self/PlayerRigging")
