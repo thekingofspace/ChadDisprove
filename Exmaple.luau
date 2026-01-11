@@ -98,14 +98,14 @@ end
 
 SetPlayerPacks()
 
+--[[
 {
 save_name = name,
 count = propCount
 prop_data = { --many props
   {
     pid = prop.id
-    cfr = 
-      {
+    cfr = {
         pos = {X = pos.X, Y = pos.Y, Z = pos.Z},
         rX = {X = rVec.X, Y = rVec.Y, Z = rVec.Z},
         rY = {X = uVec.X, Y = uVec.Y, Z = uVec.Z},
@@ -114,9 +114,43 @@ prop_data = { --many props
     clr = {} --indexed as CustomColor_..[number] = {R = r, G = g, B = b}
     }
   }
-  rmi_data = {--[[items chosen to be removed, index number, value is RMI ID]]}
+rmi_data = {--[[items chosen to be removed, index number, value is RMI ID
+
+]]
+
+type PropData = {
+    pid:number;
+    cfr:string;
+    clr:string
+}
+
+type PlayerData = {
+    save_name:string;
+    count:number;
+    rmi_data:{number};
+    prop_data:{
+        PropData
+    }
 }
 
 local A = CFrame.new():GetComponents()
 
 local B = CFrame.new(unpack(string.split(A, " ")))
+
+local C = Color3.new(0,0,0):ToHex()
+
+local D = Color3.fromHex(C)
+
+local SaveData = {
+    save_name = "save 1";
+    count = 1;
+    rmi_data = {};
+
+    prop_data = {
+        {
+            pid = 1;
+            CFR = CFrame.new():GetComponents();
+            Color3.new(0,0,0):ToHex()
+        }
+    }
+}
